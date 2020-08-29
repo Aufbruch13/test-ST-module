@@ -1,0 +1,24 @@
+{
+    "name": "test-st-module",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "client": "./node_modules/.bin/http-server ./public/"
+    },
+
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Aufbruch13/test-ST-module.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Aufbruch13/test-ST-module/issues"
+    },
+    "homepage": "https://github.com/Aufbruch13/test-ST-module#readme",
+    "dependencies": {
+        "http-server": "^0.12.3"
+    }
+}
