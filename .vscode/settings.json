@@ -1,0 +1,33 @@
+{
+  // Число пробелов в табуляции. Этот параметр переопределяется на основе содержимого файла, если установлен параметр "#editor.detectIndentation#".
+  "editor.tabSize": 2,
+  // Вставлять пробелы при нажатии клавиши TAB. Этот параметр переопределяется на основе содержимого файла, если установлен параметр "#editor.detectIndentation#".
+  "editor.insertSpaces": true,
+  // Управляет тем, будут ли параметры "#editor.tabSize#" и "#editor.insertSpaces#" определяться автоматически при открытии файла на основе содержимого файла.
+  "editor.detectIndentation": false,
+  // Определяет, должны ли в редакторе отображаться пробелы.
+  //  - none
+  //  - boundary: Отображать символы пробела за исключением одиночных пробелов между словами.
+  //  - all
+  "editor.renderWhitespace": "boundary",
+  // Определяет, должен ли редактор автоматически изменять отступ при вводе текста, вставке текста или перемещении строк. Для использования этого параметра должны быть доступны расширения с правилами отступа для данного языка.
+  "editor.autoIndent": true,
+  // Отключаем встроенную проверку стиля, т.к. используем stylelint
+  "css.validate": false,
+  "scss.validate": false, 
+  "phpcs.enable": true,
+  "phpcs.standard": "phpcs.xml",
+  // "phpcs.ignore": "config, webroot",
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#FFC707"
+  },
+  "[html]": {
+    "editor.rulers": [120]
+  },
+  "[javascript]": {
+    "editor.rulers": [120]
+  },
+  "[scss]": {
+    "editor.rulers": [100]
+  },
+}
