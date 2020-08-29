@@ -8,6 +8,28 @@ export default class ReceiptsList {
 
         this.render();
 
+        this.element.addEventListener('click', (e) => {
+            if (!e.target.closest('.receipt-item__prods a')) {
+                return;
+            }
+
+            const hideBlock = e.target.parentElement.nextElementSibling;
+
+            hideBlock.hidden = !hideBlock.hidden;
+        }); ////скрыетие/открытия блока со списком товаров 
+
+        this.element.addEventListener('click', (e) => {
+            if (!e.target.closest('.receipt-headers') ||
+                e.target.className === 'receipt-headers') {
+                return;
+            }
+
+            const parentBlock = e.target.parentElement;
+            const hideBlock = parentBlock.nextElementSibling;
+
+            hideBlock.hidden = !hideBlock.hidden;
+            parentBlock.firstElementChild.classList.toggle("close");
+        }); //скрыетие/открытия блока со списками товаров за день
     }
 
     toCutStr(str) { // обрезание строки
