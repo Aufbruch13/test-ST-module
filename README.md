@@ -6,5 +6,5 @@
 > установка пакета
 
 
-`npm run client`
+`npm run start`
 > запуск сервера
