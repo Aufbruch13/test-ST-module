@@ -96,21 +96,19 @@ export default class ReceiptsList {
                         </div>
       
                       </div>
-                    </div>
-      
-                
-                  `
+                    </div>`
+
                   ).join('')}
+
                 </div>
               </div>
             </div>
-                `
+            `
             ).join('')}  
             
             </div>
           </div>
         </section>`
     }
-
   }
 }

@@ -8,7 +8,6 @@ export default class ReceiptsPage {
     constructor(element) {
         this.element = element;
 
-
         this.receipts = getAll();
 
         this.render();
@@ -21,9 +20,6 @@ export default class ReceiptsPage {
 
     render() {
 
-        this.element.innerHTML = `
-        
-        <ReceiptsList></ReceiptsList>
-        `;
+        this.element.innerHTML = `<ReceiptsList></ReceiptsList>`;
     }
 }

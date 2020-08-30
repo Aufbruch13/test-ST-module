@@ -387,7 +387,6 @@ const receiptsArray = [{
 }];
 
 
-
 const dateConversion = (item) => { // конвертация даты в формат 'число месяц' (кириллица)
     const date = item.date.split(' ')[0];
 
@@ -402,58 +401,48 @@ const dateConversion = (item) => { // конвертация даты в фор�
 }
 
 
-const sortArr = receiptsArray.map(dateConversion) //сортировка 
-    .sort((item1, item2) => item1.date - item2.date);
+const toFormatArray = (arr) => {
+    let sortArr = arr.map(dateConversion).
+    sort((item1, item2) => item1.date - item2.date);
 
+    const result = [];
 
-const result = [];
-let prevDate = ''; //предыдущая дата
-let prevId = ''; //предыдущый id (приход)
-let sum = 0; //сумма за день
-let dateKey = 0; // ключ массива свойства date. При каждом новом id (приходе) создается объект вида 
-//{ id: [], idValue: id(приход)}, где date - это ключ массива в свойстве id.
+    for (let i = 0; i < sortArr.length; i++) { //создание многомерного массива
 
+        if (sortArr[i - 1] === undefined ||
+            sortArr[i].date !== sortArr[i - 1].date) { // добавления в массив структуры с новой датой
+            result.push({
+                dateArr: [{
+                    idArr: [sortArr[i]],
+                    idValue: sortArr[i].id,
+                }],
+                dateValue: sortArr[i].date,
+                sum: sortArr[i].price * sortArr[i].quantity,
 
+            })
 
-for (const item of sortArr) { //создание многомерного массива
-    if (item.date !== prevDate) { // добавления в массив структуры с новой датой
-        result.push({
-            dateArr: [{
-                idArr: [item],
-                idValue: item.id,
-            }],
-            dateValue: item.date,
-            sum: item.price * item.quantity,
-
-        })
-
-        sum = 0;
-        dateKey = 0;
-
-    } else {
-        sum = result[result.length - 1].sum + item.price * item.quantity;
-
-        result[result.length - 1].sum = sum;
-
-        if (prevId !== item.id) { //добавление в массив структуры с новым id
-            result[result.length - 1].dateArr.push({
-
-                idArr: [item],
-                idValue: item.id,
-
-            });
-            dateKey++;
         } else {
+            result[result.length - 1].sum += sortArr[i].price * sortArr[i].quantity;
 
-            result[result.length - 1].dateArr[dateKey].idArr.push(item); //добавление данных в уже созданную структуру 
+            if (sortArr[i - 1] === undefined ||
+                sortArr[i].id !== sortArr[i - 1].id) { //добавление в массив структуры с новым id
+                result[result.length - 1].dateArr.push({
+
+                    idArr: [sortArr[i]],
+                    idValue: sortArr[i].id,
+
+                });
+            } else {
+
+                result[result.length - 1].dateArr[result[result.length - 1].dateArr.length - 1].idArr.push(sortArr[i]); //добавление данных в уже созданную структуру 
+            }
         }
     }
 
-    prevDate = item.date;
-    prevId = item.id;
+    return result;
 }
 
 
 export default function getAll() {
-    return result;
+    return toFormatArray(receiptsArray);
 }
