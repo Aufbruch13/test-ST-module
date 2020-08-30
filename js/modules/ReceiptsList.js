@@ -1,6 +1,5 @@
 'use strict';
 
-
 export default class ReceiptsList {
     constructor(element, props) {
         this.element = element;

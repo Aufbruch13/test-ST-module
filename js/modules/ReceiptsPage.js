@@ -2,7 +2,7 @@
 
 import ReceiptsList from './ReceiptsList.js';
 
-import getAll from './Receipts.js';
+import getAll from '../Receipts.js';
 
 export default class ReceiptsPage {
     constructor(element) {
@@ -17,9 +17,7 @@ export default class ReceiptsPage {
         );
     }
 
-
     render() {
-
         this.element.innerHTML = `<ReceiptsList></ReceiptsList>`;
     }
 }
