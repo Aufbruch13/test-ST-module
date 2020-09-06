@@ -74,7 +74,10 @@ export default class ReceiptsList {
                         
                         <div class="price-wrapper">
                           <p><span>${idItem.quantity} штук х ${Math.ceil(idItem.price)} р</span></p>
-                          <p><span>${Math.ceil(idItem.price * idItem.quantity)}р</span></p>
+                          <p><span>${Math.ceil(idItem.price * idItem.quantity)
+                            .toLocaleString().replace(',', ' ')}р
+                            </span>
+                          </p>
                         </div>
       
                       </div>
