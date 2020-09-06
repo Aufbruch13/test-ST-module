@@ -1,35 +1,35 @@
 'use strict';
 
 export default class ReceiptsList {
-    constructor(element, props) {
-        this.element = element;
-        this.props = props;
+  constructor(element, props) {
+    this.element = element;
+    this.props = props;
 
-        this.render();
+    this.render();
 
-        this.element.addEventListener('click', (e) => {
-            if (!e.target.closest('.receipt-item__prods a')) {
-                return;
-            }
+    this.element.addEventListener('click', (e) => {
+      if (!e.target.closest('.receipt-item__prods a')) {
+          return;
+      }
 
-            const hideBlock = e.target.parentElement.nextElementSibling;
+      const hideBlock = e.target.parentElement.nextElementSibling;
 
-            hideBlock.hidden = !hideBlock.hidden;
-        }); ////скрыетие/открытия блока со списком товаров 
+      hideBlock.hidden = !hideBlock.hidden;
+    }); ////скрыетие/открытия блока со списком товаров 
 
-        this.element.addEventListener('click', (e) => {
-            if (!e.target.closest('.receipt-headers') ||
-                e.target.className === 'receipt-headers') {
-                return;
-            }
+    this.element.addEventListener('click', (e) => {
+      if (!e.target.closest('.receipt-headers') ||
+          e.target.className === 'receipt-headers') {
+          return;
+      }
 
-            const parentBlock = e.target.parentElement;
-            const hideBlock = parentBlock.nextElementSibling;
+      const parentBlock = e.target.parentElement;
+      const hideBlock = parentBlock.nextElementSibling;
 
-            hideBlock.hidden = !hideBlock.hidden;
-            parentBlock.firstElementChild.classList.toggle("close");
-        }); //скрыетие/открытия блока со списками товаров за день
-    }
+      hideBlock.hidden = !hideBlock.hidden;
+      parentBlock.firstElementChild.classList.toggle("close");
+    }); //скрыетие/открытия блока со списками товаров за день
+  }
 
     render() {
       for (let item of this.props) {

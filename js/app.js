@@ -3,5 +3,5 @@
 import ReceiptsPage from './modules/ReceiptsPage.js';
 
 new ReceiptsPage(
-    document.querySelector('App')
+  document.querySelector('App')
 );

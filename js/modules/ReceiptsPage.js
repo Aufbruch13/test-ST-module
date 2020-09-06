@@ -5,19 +5,19 @@ import ReceiptsList from './ReceiptsList.js';
 import getAll from '../Receipts.js';
 
 export default class ReceiptsPage {
-    constructor(element) {
-        this.element = element;
+  constructor(element) {
+    this.element = element;
 
-        this.receipts = getAll();
+    this.receipts = getAll();
 
-        this.render();
+    this.render();
 
-        new ReceiptsList(
-            document.querySelector('ReceiptsList'), this.receipts
-        );
-    }
+    new ReceiptsList(
+      document.querySelector('ReceiptsList'), this.receipts
+    );
+  }
 
-    render() {
-        this.element.innerHTML = `<ReceiptsList></ReceiptsList>`;
-    }
+  render() {
+    this.element.innerHTML = `<ReceiptsList></ReceiptsList>`;
+  }
 }
