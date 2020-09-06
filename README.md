@@ -7,7 +7,7 @@
 
 
 `npm install http-server`
-> установка пакета
+> установка пакетов
 
 `npm run start`
 > запуск сервера
