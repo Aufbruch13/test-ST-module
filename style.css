@@ -116,6 +116,10 @@ main {
     font-size: 16px;
     color: #000;
     margin-bottom: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .receipt-item__prods span {
@@ -133,6 +137,7 @@ main {
 .receipt-item__prods .info-wrapper {
     margin-left: 20px;
     flex-basis: 100%;
+    overflow: hidden;
 }
 
 .receipt-item__prods .price-wrapper {

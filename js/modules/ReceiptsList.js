@@ -31,26 +31,9 @@ export default class ReceiptsList {
         }); //скрыетие/открытия блока со списками товаров за день
     }
 
-    toCutStr(str) { // обрезание строки
-        if (document.documentElement.clientWidth < 372 &&
-            str.length > 28) {
-
-            return str.slice(0, 25) + '...';
-        }
-        if (document.documentElement.clientWidth < 769 &&
-            str.length > 32) {
-
-            return str.slice(0, 35) + '...';
-        }
-
-        return str;
-    }
-
-
     render() {
-
-            for (let item of this.props) {
-                this.element.innerHTML += `  
+      for (let item of this.props) {
+        this.element.innerHTML += `  
         <section class="receipt">
           <div class="receipt-container">
             <div class="receipt-headers">  
@@ -87,7 +70,7 @@ export default class ReceiptsList {
                       </div>
       
                       <div class="info-wrapper">
-                        <p>${this.toCutStr(idItem.name)}</p>
+                        <p>${idItem.name}</p>
                         
                         <div class="price-wrapper">
                           <p><span>${idItem.quantity} штук х ${Math.ceil(idItem.price)} р</span></p>
